@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Functions</title>
+  </head>
+  <body>
+    <header>
+      <div id="navigate">
+        <ul>
+          <li><a href="index.html">Converter</a></li>
+          <li><a href="func.html">Functions</a></li>
+          <li><a href="magic.html">Magic</a></li>
+        </ul>
+      </div>
+      <div class="content">
+        <h2 id="Functions">Functions</h2>
+        <label>Enter numbers</label>
+        <input
+          id="num"
+          type="text"
+          placeholder=" value"
+          oninput="myFunction()"
+        />
+        <p id="demo"></p>
+        <script>
+          function myFunction() {
+            var lbr = "</br>";
+            var str = document.getElementById("num").value;
+            var arr = str.split(",").map(Number);
+            var l = arr.length;
+            var m = Math.max(...arr);
+            var m1 = Math.min(...arr);
+            var sum = arr.reduce(function(a, b) {
+              return a + b;
+            }, 0);
+            var avg = sum / l;
+            var rev = arr.reverse();
+            document.getElementById("demo").innerHTML ="Max:" +" " +m +lbr +"Min:" +
+              " " +
+              m1 +
+              lbr +
+              "Sum:" +
+              " " +
+              sum +
+              lbr +
+              "Average:" +
+              " " +
+              avg +
+              lbr +
+              "Reverse:" +
+              " " +
+              rev;
+          }
+        </script>
+      </div>
+      <div class="footer">
+        <p>copyright&copy;2020</p>
+        <p>Last modified</p>
+        <script>
+          var date = document.lastModified;
+          document.write(date);
+        </script>
+      </div>
+    </header>
+  </body>
+</html>

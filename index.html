@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=0,maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Home</title>
+  </head>
+  <body onload="quote()">
+    <header>
+      <div id="navigate">
+        <ul>
+          <li><a href="index.html">Converter</a></li>
+          <li><a href="func.html">Functions</a></li>
+          <li><a href="magic.html">Magic</a></li>
+        </ul>
+      </div>
+      <div class="content">
+        <h2 id="converter">Converter</h2>
+        <label>Enter number</label>
+        <input id="num" type="number" placeholder=" value" />
+        <select id="mySelect">
+          <option value="kg to lbs">kg to lbs</option>
+          <option value="lbs to kg">lbs to kg</option>
+        </select>
+        <button type="button" onclick="myFunction()">Go</button>
+        <span id="demo"></span>
+        <script>
+          function myFunction() {
+            var y = document.getElementById("num").value;
+            var e = document.getElementById("mySelect");
+            var result = e.options[e.selectedIndex].value;
+            if (result === "kg to lbs") {
+              document.getElementById("demo").innerHTML = "pound:" + y * 2.2046;
+            } else {
+              document.getElementById("demo").innerHTML = "Kg:" + y / 2.2046;
+            }
+          }
+        </script>
+      </div>
+      <div class="quotes">
+        <span id="demo1"></span>
+        <div class="btn">
+          <button id="green" onclick="greenfunc()">g</button>
+          <button id="blue" onclick="bluefunc()">b</button>
+          <br />
+          <button id="pink" onclick="pinkfunc()">p</button>
+          <button id="red" onclick="redfunc()">r</button>
+        </div>
+      </div>
+      <script type="text/javascript">
+        function greenfunc() {
+          document.getElementById("demo1").style.backgroundColor = "green";
+          document.getElementById("demo1").style.color = "black";
+          document.getElementById("demo1").style.fontFamily = "fantasy";
+        }
+        function bluefunc() {
+          document.getElementById("demo1").style.backgroundColor = "blue";
+          document.getElementById("demo1").style.color = "white";
+          document.getElementById("demo1").style.fontFamily = "Verdana";
+        }
+        function redfunc() {
+          document.getElementById("demo1").style.backgroundColor = "red";
+          document.getElementById("demo1").style.color = "black";
+          document.getElementById("demo1").style.fontFamily =
+            "Lucida Sans Unicode";
+        }
+        function pinkfunc() {
+          document.getElementById("demo1").style.backgroundColor = "pink";
+          document.getElementById("demo1").style.color = "maroon";
+          document.getElementById("demo1").style.fontFamily =
+            "Franklin Gothic Medium";
+        }
+        function quote() {
+          var arr = [
+            "“No matter how hard you work, someone else is working harder. ”",
+            "“Almighty is enough”",
+            "“When things are too hard to handle, retreat & count your blessings instead.”",
+            "“Almighty’s timing is perfect in every matter.”",
+            "“Hard work beats talent if talent doesn’t work hard.”"
+          ];
+          var index = Math.floor(Math.random() * arr.length);
+          var a = arr[index];
+          document.getElementById("demo1").innerHTML = a;
+        }
+      </script>
+      <div class="footer">
+        <p>copyright&copy;2020</p>
+        <p>Last modified</p>
+        <script>
+          var date = document.lastModified;
+          document.write(date);
+        </script>
+      </div>
+    </header>
+  </body>
+</html>

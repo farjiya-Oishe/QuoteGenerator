@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css" />
+  <title>Magic</title>
+</head>
+
+<body>
+  <header>
+    <div id="navigate">
+      <ul>
+        <li><a href="index.html">Converter</a></li>
+        <li><a href="func.html">Functions</a></li>
+        <li><a href="magic.html">Magic</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <h1 style="text-align: left; color:maroon;">Magic!</h1 style>
+      <div id="textarea" class="items">
+        <textarea name="text" placeholder = "enter something with a comma in between. e.g : hi, there " id="samples" cols="30" rows="10"></textarea>
+      </div>
+      <span id="demo"></span>
+      <div class="items-btn">
+        <button id="clear" onclick="document.getElementById('samples').value = ''">Clear It</button>
+        <button onclick="capFunc()">Capitalize</button>
+        <button onclick="sortFunc()">Sort</button>
+        <button onclick="revFunc()">Reverse</button>
+        <button onclick="stripFunc()">Strip Blank</button>
+        <button onclick="addNumFunc()">Add Numbers</button>
+        <button onclick="shuffleFunc()">Shuffle</button>
+      </div>
+      <script type="text/javascript">
+         var flag=0;
+         function addNumFunc(){
+          var element = document.getElementById("samples");
+          var a=element.value;
+          a = a.replace(/\n/g, " ");
+          var arr=a.split(",");
+          var len=arr.length;
+          text="";
+          var lbr = "</br>";
+          for(var i=0; i<len; i++){
+            text += i+"."+ arr[i]+" ";
+          }
+          document.getElementById("samples").value = text;
+         }
+         function shuffleFunc(){
+          Array.prototype.shuffle = function() {
+            var i = this.length;
+            if (i == 0) return this;
+            while (--i) {
+              var j = Math.floor(Math.random() * (i + 1 ));
+              var a = this[i];
+              var b = this[j];
+              this[i] = b;
+              this[j] = a;
+            }
+            return this;
+          };
+          var element = document.getElementById("samples");
+          var a=element.value;
+          a = a.replace(/\n/g, " ");
+          var j = a.split(" ").shuffle().join(' ');
+          document.getElementById("samples").value = j;
+          }
+         function stripFunc(){
+          var element = document.getElementById("samples");
+          var a=element.value;
+          a=a.replace( /[\r\n]+/gm, "" );
+          a = a.replace(/ +/g, "");
+          var j = a.split(",");
+          document.getElementById("samples").value = a;
+         }
+         function sortFunc(){
+          var element = document.getElementById("samples");
+          var a=element.value;
+          a = a.replace(/\n/g, " ");
+          a=a.replace( /[\r\n]+/gm, "" );
+          var arr = a.split(",");
+          var r=arr.sort();
+          document.getElementById("samples").value = r;
+        }
+        function revFunc(){
+          var element = document.getElementById("samples");
+          var a=element.value;
+          a = a.replace(/\n/g, " ");
+          a=a.replace( /[\r\n]+/gm, "" );
+          var arr = a.split(",");
+          var reverseArray = arr.reverse();
+          //var joinArray = reverseArray.join("");
+          //var r=arr.reverse();
+          document.getElementById("samples").value = reverseArray;
+        }
+        function capFunc(){
+          var element = document.getElementById("samples");
+          var a=element.value;
+          if(flag%2==0){
+            var upC=a.toUpperCase();
+            document.getElementById("samples").value = upC;
+            flag++;
+          }
+          else{
+            var lwC=a.toLowerCase();
+            document.getElementById("samples").value = lwC;
+            flag++;
+          }
+        }
+        
+      </script>
+
+    </div>
+    <div class="footer">
+      <p>copyright&copy;2020</p>
+      <p>Last modified</p>
+      <script>
+        var date = document.lastModified;
+        document.write(date);
+      </script>
+    </div>
+  </header>
+</body>
+
+</html>
